@@ -61,4 +61,14 @@ public class TestWebGUI {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    void checkEmptyInput () throws InterruptedException {
+
+        String expected = "Поле обязательно для заполнения";
+        driver.findElement(By.cssSelector("[data-test-id=agreement]")).click();
+        driver.findElement(By.className("button")).click();
+        String actual = driver.findElement(By.className("input__sub")).getText().trim();
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
